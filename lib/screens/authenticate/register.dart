@@ -2,7 +2,7 @@ import 'package:brew_crew/screens/authenticate/sign_in.dart';
 import 'package:brew_crew/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:brew_crew/services/auth.dart';
-
+import 'package:toast/toast.dart';
 class Register extends StatefulWidget {
   final Function toggleView;
   Register({this.toggleView});
@@ -107,6 +107,12 @@ class _RegisterState extends State<Register> {
                         error = "please supply a valid email";
                       });
                     }
+                    else
+                      {
+                        Toast.show(
+                            "Succesfully registered as "+email, context, duration: Toast.LENGTH_SHORT,
+                            gravity: Toast.BOTTOM);
+                      }
                   }
                 },
               ),

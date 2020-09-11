@@ -1,6 +1,7 @@
 import 'package:brew_crew/services/auth.dart';
 import 'package:brew_crew/shared/loading.dart';
 import 'package:flutter/material.dart';
+import 'package:toast/toast.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -106,7 +107,15 @@ class _SignInState extends State<SignIn> {
                       setState(() {
                         loading = false;
                         error = "please write a registered email and correct password";
-                      });
+                      }
+
+                      );
+                    }
+                    else
+                    {
+                      Toast.show(
+                          "Welcome: "+email, context, duration: Toast.LENGTH_SHORT,
+                          gravity: Toast.BOTTOM);
                     }
                   }
                 },
